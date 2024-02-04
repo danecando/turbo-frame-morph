@@ -17,6 +17,6 @@
     <%= yield %>
   </body>
   <div class="hidden z-10 w-full h-screen bg-gray-100 fixed top-0 left-0" data-controller="modal" data-modal-target="modal">
-      <%= turbo_frame_tag "turbo-frame-modal", target: "_top" %>
+      <%= turbo_frame_tag "turbo-frame-modal", target: "_top", data: { "modal-target": "frame" } %>
   </div>
 </html>
