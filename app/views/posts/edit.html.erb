@@ -1,0 +1,29 @@
+<%= turbo_frame_tag "turbo-frame-modal" do %>
+  <%= form_with(model: @post, local: true, class: "bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4") do |form| %>
+    <% if @post.errors.any? %>
+      <div class="error-explanation">
+        <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+        <ul>
+          <% @post.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="mb-4">
+      <%= form.label :title, class: "block text-gray-700 text-sm font-bold mb-2" %>
+      <%= form.text_field :title, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+    </div>
+
+    <div class="mb-6">
+      <%= form.label :body, class: "block text-gray-700 text-sm font-bold mb-2" %>
+      <%= form.text_area :body, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+    </div>
+
+    <div class="flex items-center justify-between">
+      <%= form.submit "Update Post", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+    </div>
+  <% end %>
+<% end %>
